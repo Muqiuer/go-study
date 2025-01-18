@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -82,7 +83,12 @@ func query(word string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		err := Body.Close()
+		if err != nil {
+
+		}
+	}(resp.Body)
 	bodyText, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatal(err)
@@ -112,6 +118,9 @@ func main() {
 	//	query(word)
 	fmt.Println("请输入要查询的单词：")
 	var word string
-	fmt.Scanln(&word)
+	_, err := fmt.Scanln(&word)
+	if err != nil {
+		return
+	}
 	query(word)
 }
