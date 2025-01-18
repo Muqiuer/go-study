@@ -1,0 +1,21 @@
+curl 'https://api.interpreter.caiyunai.com/v1/dict' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'accept-language: zh' \
+  -H 'app-name: xiaoyi' \
+  -H 'authorization: Bearer' \
+  -H 'content-type: application/json;charset=UTF-8' \
+  -H 'device-id;' \
+  -H 'origin: https://fanyi.caiyunapp.com' \
+  -H 'os-type: web' \
+  -H 'os-version;' \
+  -H 'priority: u=1, i' \
+  -H 'referer: https://fanyi.caiyunapp.com/' \
+  -H 'sec-ch-ua: "Not(A:Brand";v="99", "Microsoft Edge";v="133", "Chromium";v="133"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36 Edg/133.0.0.0' \
+  -H 'x-authorization: token:qgemv4jr1y38jyq6vhvi' \
+  --data-raw '{"trans_type":"en2zh","source":"good"}'
