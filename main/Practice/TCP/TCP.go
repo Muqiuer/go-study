@@ -18,16 +18,26 @@ const atypeHOST = 0x03
 const atypeIPV6 = 0x04
 
 func main() {
+	// 创建TCP监听器（监听本地127.0.0.1的1080端口，通常为SOCKS5代理默认端口）
+	// net.Listen("tcp", addr) 返回一个可接受连接的Listener接口
 	server, err := net.Listen("tcp", "127.0.0.1:1080")
 	if err != nil {
-		panic(err)
+		panic(err) // 监听器创建失败时直接终止程序并输出错误（如端口被占用）
 	}
+
+	// 无限循环：持续接受客户端连接请求
 	for {
+		// 接受一个客户端连接（阻塞直到新连接到达）
+		// server.Accept() 返回表示客户端连接的Conn接口
 		client, err := server.Accept()
 		if err != nil {
+			// 记录连接接受失败的错误（如服务器关闭时可能触发），继续循环等待新连接
 			log.Printf("Accept failed %v", err)
 			continue
 		}
+
+		// 启动独立goroutine处理客户端连接（实现并发服务）
+		// 每个客户端连接由独立的goroutine处理，避免阻塞主循环
 		go process(client)
 	}
 }
