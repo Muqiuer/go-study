@@ -16,4 +16,17 @@ func main() {
 	var b int = 20
 	swap(&a, &b)
 	fmt.Println("a = ", a, "b = ", b)
+
+	var p *int
+
+	p = &a
+
+	fmt.Println(&a)
+	fmt.Println(p)
+
+	var pp **int
+
+	pp = &p
+	fmt.Println(pp)
+
 }
