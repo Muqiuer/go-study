@@ -12,6 +12,7 @@ func printArray(myArray [4]int) {
 }
 
 func main() {
+
 	//固定长度数组
 	var myArray1 [10]int
 

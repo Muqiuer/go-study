@@ -1,9 +1,8 @@
 package main
 
 import (
-	_ "go-study/main/study/lib/lib1"
-	// mylib2 "go-study/main/study/lib/lib2"
-	. "go-study/main/study/lib/lib2"
+	_ "go-study/main/study/3.lib/lib1"
+	. "go-study/main/study/3.lib/lib2"
 )
 
 func main() {
